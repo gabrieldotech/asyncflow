@@ -28,7 +28,7 @@ export async function videoRoutes(
     });
 
     return reply
-      .status(200)
+      .status(202)
       .send({ message: "Task add to queue", id: message.id });
   });
 }
