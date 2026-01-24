@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { Channel } from "amqplib";
-import { v4 as uuidv4 } from 'uuid';
-import { z } from 'zod';
+import { v4 as uuidv4 } from "uuid";
+import { z } from "zod";
 
 export async function videoRoutes(
   app: FastifyInstance,
@@ -10,11 +10,12 @@ export async function videoRoutes(
   const QUEUE_NAME = "pedidos_video";
 
   const convertVideoSchema = z.object({
-    videoName: z.string({ message: "videoName must be a string" })
+    videoName: z
+      .string({ message: "videoName must be a string" })
       .min(1, "videoName is required and cannot be empty"),
   });
   app.post("/convert", async (request, reply) => {
-    const { videoName } = convertVideoSchema.parse(request.body)
+    const { videoName } = convertVideoSchema.parse(request.body);
 
     const message = {
       id: uuidv4(),

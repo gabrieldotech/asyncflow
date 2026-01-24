@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "cd api && ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "cd api && tsc",
-    "start": "cd api && node dist/server.js"
+    "dev": "tsx watch api/src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "amqplib": "^0.10.9",
@@ -17,6 +17,7 @@
     "@types/amqplib": "^0.10.8",
     "@types/node": "^25.0.3",
     "ts-node-dev": "^2.0.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }
